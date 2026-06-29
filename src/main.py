@@ -130,6 +130,8 @@ def main() -> int:
                     continue
                 result = check_password_strength(pw)
                 print(f'Strength: {result}')
+                if result == 'Weak':  # Tip: guide the user towards a stronger password
+                    print('Tip: try a password with at least 8 characters and a mix of uppercase, lowercase, digits and special characters.')
 
             elif choice == '3' or choice.lower() in ('q', 'quit', 'exit'):
                 print('Exiting program.')
