@@ -121,11 +121,12 @@ def check_password_strength(password: str) -> str:
     return 'Weak'
 
 
-def prompt_int(prompt: str, min_value: int = None) -> int:
+def prompt_int(prompt: str, min_value: int = None, max_value: int = None) -> int:
     """Prompt the user until a valid integer is entered.
 
     - prompt: text shown to the user
     - min_value: if provided, ensure the value is >= min_value
+    - max_value: if provided, ensure the value is <= max_value
     """
     while True:
         try:
@@ -136,6 +137,10 @@ def prompt_int(prompt: str, min_value: int = None) -> int:
             # If a minimum is specified, validate it
             if min_value is not None and value < min_value:
                 print(f'Input must be at least {min_value}.')
+                continue
+            # Upper bound validation
+            if max_value is not None and value > max_value:
+                print(f'Input must be at most {max_value}.')
                 continue
             # Return the valid integer
             return value
@@ -181,8 +186,8 @@ def main() -> int:
 
             # Option 1: Generate password
             if choice == '1':
-                # Ask for length with validation (minimum 8)
-                length = prompt_int('Desired length (minimum 8): ', min_value=8)
+                # Ask for length with validation (minimum 8, maximum 64)
+                length = prompt_int('Desired length (minimum 8, maximum 64): ', min_value=8, max_value=64)
                 # Ask whether to include special characters
                 include_special = prompt_yes_no('Include special characters?')
                 try:
