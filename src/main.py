@@ -187,7 +187,8 @@ def main() -> int:
             # Option 1: Generate password
             if choice == '1':
                 # Ask for length with validation (minimum 8, maximum 64)
-                length = prompt_int('Desired length (minimum 8, maximum 64): ', min_value=8, max_value=64)
+                print('Password length must be between 8 and 64 characters.')  # Inform the user of the valid range before prompting
+                length = prompt_int('Desired length (8-64): ', min_value=8, max_value=64)
                 # Ask whether to include special characters
                 include_special = prompt_yes_no('Include special characters?')
                 try:
