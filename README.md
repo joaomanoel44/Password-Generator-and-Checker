@@ -1,9 +1,6 @@
 # Password-Generator-and-Checker
 A local Python console application to generate secure passwords, check password strength, and save the results to a text file.
 
-# Password Generator and Checker
-
-A lightweight, fully offline Python console application that generates secure passwords and evaluates password strength. Built as a retake project for the **Programming Foundations** module at FHNW.
 
 ---
 
